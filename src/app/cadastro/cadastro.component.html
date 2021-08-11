@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center">
+                    <h5 class="mt-3">Cadastro de computadores</h5>
+                </div>
+                <form [formGroup]="formRegister" (ngSubmit)="onSubmit()" autocomplete="off">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Marca do computador:</label>
+                            <input type="text" class="form-control" formControlName="marca" />
+                            <span class="text-danger" *ngIf="form.marca.touched && form.marca.invalid">
+                                <span *ngIf="form.marca.errors.required">
+                                    Por favor, informe a marca do computador.
+                                </span>
+                            </span>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label>Modelo do computador:</label>
+                            <input type="text" class="form-control" formControlName="modelo" />
+                            <span class="text-danger" *ngIf="form.modelo.touched && form.modelo.invalid">
+                                <span *ngIf="form.modelo.errors.required">
+                                    Por favor, informe o modelo do computador.
+                                </span>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Placa mãe do computador:</label>
+                            <input type="text" class="form-control" formControlName="placa" />
+                            <span class="text-danger" *ngIf="form.placa.touched && form.placa.invalid">
+                                <span *ngIf="form.placa.errors.required">
+                                    Por favor, informe a placa mãe do computador.
+                                </span>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Memória ram do computador:</label>
+                            <input type="text" class="form-control" formControlName="memoria" />
+                            <span class="text-danger" *ngIf="form.memoria.touched && form.memoria.invalid">
+                                <span *ngIf="form.memoria.errors.required">
+                                    Por favor, informe a memória ram do computador.
+                                </span>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Hd do computador:</label>
+                            <input type="text" class="form-control" formControlName="hd" />
+                            <span class="text-danger" *ngIf="form.hd.touched && form.hd.invalid">
+                                <span *ngIf="form.hd.errors.required">
+                                    Por favor, informe o hd do computador.
+                                </span>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Velocidade do processador:</label>
+                            <input type="text" class="form-control" formControlName="processador" />
+                            <span class="text-danger" *ngIf="form.processador.touched && form.processador.invalid">
+                                <span *ngIf="form.processador.errors.required">
+                                    Por favor, informe o processador do computador.
+                                </span>
+                            </span>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label>Foto do computador: </label>
+                            <input type="file" formControlName="foto" />
+                            <span class="text-danger" *ngIf="form.foto.touched && form.foto.invalid">
+                                <span *ngIf="form.foto.errors.required">
+                                    Por favor, informe a foto do computador.
+                                </span>
+                            </span>
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+
+                        <div class="d-grid">
+                            <input type="submit" class="btn btn-success" [disabled]="!formRegister.valid"
+                                value="Cadastrar" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
