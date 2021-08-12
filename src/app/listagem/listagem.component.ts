@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListagemComponent implements OnInit {
 
+  pc = {
+    marca: '',
+    modelo: '',
+    placa: '',
+    memoria: '',
+    hd: '',
+    processador: '',
+    foto: ''
+  };
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('Users') != null) {
+      var dados = localStorage.getItem('Users') as string;
+      this.pc = JSON.parse(dados);
+
+    }
+
   }
 
 }

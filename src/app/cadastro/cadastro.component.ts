@@ -7,7 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
-
+  cadastro: any = {};
   pc = {
     marca: '',
     modelo: '',
@@ -16,12 +16,12 @@ export class CadastroComponent implements OnInit {
     hd: '',
     processador: '',
     foto: ''
-  }
-
+  };
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
   //criando um atributo para capturar o conteudo do formulario
   formRegister = new FormGroup({
@@ -57,30 +57,32 @@ export class CadastroComponent implements OnInit {
   }
 
   //método para capturar o SUBMIT do formulário
+
   onSubmit(): void {
-    console.log(this.formRegister.value);
 
 
+    var user = []; //array.
 
-    var cestaDeCompras = []; //array..
-
-    //verificar se já existem produtos adicionados em sessão..    
-    if (localStorage.getItem('CADASTRO') != null) {
-      //capturar o conteudo gravado em sessão
-      var dados = localStorage.getItem('CADASTRO');
-      cestaDeCompras = JSON.parse(dados as string) as any[];
-    }
-
-    //adicionar o produto que foi selecionado na página
-    cestaDeCompras.push();
 
     //gravar novamente os dados da cesta de compras em sessão
-    localStorage.setItem('CADASTRO',
-      JSON.stringify(cestaDeCompras));
+    console.log(this.formRegister.value);
+    this.cadastro = Object.assign(this.cadastro, this.formRegister.value);
+    this.addUser(this.cadastro);
+    this.formRegister.reset();
+  }
+  addUser(cadastro: any) {
+    let users = [];
+    if (localStorage.getItem('Users')) {
 
-    //redirecionar para a página de carrinho de compras
+      users = JSON.parse(localStorage.getItem('Users') || '{}');
+      users = [cadastro, ...users];
+    }
+    else {
+      users = [cadastro];
+    }
+    localStorage.setItem('Users', JSON.stringify(cadastro));
     window.location.href = "/cadastro";
-
   }
 }
+
 
