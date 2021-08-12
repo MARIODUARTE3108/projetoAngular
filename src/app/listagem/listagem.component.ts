@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListagemComponent implements OnInit {
 
-  pc = {
+  pc = [{
     marca: '',
     modelo: '',
     placa: '',
@@ -15,7 +15,7 @@ export class ListagemComponent implements OnInit {
     hd: '',
     processador: '',
     foto: ''
-  };
+  }];
   constructor() { }
 
   ngOnInit(): void {
@@ -24,7 +24,16 @@ export class ListagemComponent implements OnInit {
       this.pc = JSON.parse(dados);
 
     }
-
   }
+  Excluir(): void {
+    if (window.confirm('Deseja realmente excluir o computador? ')) {
+      localStorage.removeItem('Users');
+      window.location.href = '/listagem'; //recarregar a página
 
+    }
+  }
+  Editar(): void {
+    window.location.href = '/editar';
+  }
 }
+

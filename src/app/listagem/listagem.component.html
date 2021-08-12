@@ -1,44 +1,37 @@
 <h5>Computadores cadastrados</h5>
 <hr />
 
-<div class="row">
-    <div class="col-md-6">
-        <span>Quantidade de computadores: <strong>0</strong></span>
-        <br />
-        <br />
-    </div>
-</div>
-
-<table class="table table-bordered table-stripped table-hover">
+<table id="tabela_dados" class="table table-sm">
     <thead>
         <tr>
-            <th>Foto</th>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Placa mãe</th>
             <th>Memória ram</th>
             <th>Hd</th>
             <th>Velocidade do processador</th>
+            <th>Foto</th>
             <th>Operações</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td class=" text-end">
+        <tr *ngFor="let item of pc">
+
+            <td class="text-end">{{item.marca}}</td>
+            <td class="text-end">{{item.modelo}}</td>
+            <td class="text-end">{{item.placa}}</td>
+            <td class="text-end">{{item.memoria}}</td>
+            <td class="text-end">{{item.hd}}</td>
+            <td class="text-end">{{item.processador}}</td>
+            <td width="80">
+                <img src="{{item.foto}}" class="img-fluid" />
             </td>
-            <td class="text-end"></td>
-            <td class="text-end"></td>
-            <td class="text-end"></td>
-            <td class="text-end"></td>
-            <td class="text-end"></td>
-            <td class="text-end"></td>
-            <td width="60" class="text-center">
-                <button class="btn btn-outline-danger">
-                    excluir
+            <td width="50" class="text-center">
+                <button class="btn btn-outline-danger" (click)="Excluir()">
+                    Excluir
                 </button>
-                &nbsp;
                 <br />
-                <button class="btn btn-outline-primary">
+                <button class="btn btn-outline-primary mt-1" (click)="Editar()">
                     Editar
                 </button>
             </td>

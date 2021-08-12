@@ -10,10 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ListagemComponent } from './listagem/listagem.component';
+import { EditarComponent } from './editar/editar.component';
 
 const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'listagem', component: ListagemComponent }
+  { path: 'listagem', component: ListagemComponent },
+  { path: 'editar', component: EditarComponent }
 
 ]
 
@@ -21,7 +23,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     CadastroComponent,
-    ListagemComponent
+    ListagemComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

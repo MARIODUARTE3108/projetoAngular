@@ -9,6 +9,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet" />
 
 </head>
 
@@ -18,6 +19,27 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
+
+  <!-- caminho da biblioteca JS do jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- caminho da biblioteca JS do datatables -->
+  <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+  <!-- função para habilitar o datatable -->
+  <script>
+    $(document).ready(function () {
+      $('#tabela_dados').DataTable({
+        "pageLength": 5,
+        "lengthMenu": [5, 10, 20, 50, 100],
+        "oLanguage": {
+          "sUrl": "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+        }
+      });
+    });
+  </script>
+
+
 </body>
 
 </html>
